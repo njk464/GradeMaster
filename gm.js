@@ -1,0 +1,71 @@
+GPA = "";
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }
+}
+$(document).ready(function() {
+	if (GPA == "")
+	{
+		GPA = getCookie("GPA");
+		console.log (GPA);
+	}
+	var text = $("#someitemtext");
+	var butt = $("#enter");
+	var red= $("redirect");
+	butt.on("click", function() {
+		var txtinput = text.val();
+		//console.log(txtinput);
+		$('#priority').append('<option>' + txtinput + '</option>');
+		text.val("");
+		GPA = 4.0;
+		setCookie("GPA", GPA, 1);
+		console.log(GPA);
+	});
+	red.on("click", function() {
+		var go = $("priority").val()
+		$("#a").append(go);
+		text.val("");
+	});
+
+	$(document).on('click', '.item', function() {
+		console.log("item");
+        	if( $(this).parent().id == "priority" ){
+            		$(this).remove();
+        	}
+    	});
+});
+
+
+
+
+
+
+
+
+
+

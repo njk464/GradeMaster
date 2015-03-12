@@ -1,0 +1,76 @@
+<html>
+
+<head>
+	
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="editClass.css">
+	<script src="editClass.js"></script>
+</head>
+
+<body>
+	<h1>Classes</h1>
+	<ul>
+		<li><a href="gradeMaster.html">Home</a></li>
+  	<li><a href="Classes.html">Classes</a></li>
+  	<li><a href="GPA.html">GPA</a></li>
+	</ul>
+  <label>Class name</label>
+  <input type="text" id="name"></input>
+  <label float ="bottom">How many hours is this class?</label>
+  <input type="text" id="hours"></input>
+  <label>Is this class already completed?</label>
+  <select name="completed" id="comp">
+    <option id="blank" value = "blank">--</option>
+    <option id="yes" value = "yes">yes</option>
+    <option id="no" value = "no">no</option> 
+  </select>
+  <label>If so what grade did you get?</label>
+  <select name="grade" id="grade">
+    <option>--</option>
+    <option>A</option>
+    <option>A-</option> 
+    <option>B+</option>
+    <option>B</option>
+    <option>C+</option>
+    <option>C</option>
+    <option>C-</option>
+    <option>D+</option>
+    <option>D</option>
+    <option>D-</option>
+    <option>F+</option>
+    <option>F</option>
+  </select>
+  <label>What semester did you take this class in?</label>
+  <select name="season" id="season">
+    <option id="blank" value = "blank">--</option>
+    <option id="Fall" value = "Fall">Fall</option>
+    <option id="Spring" value = "Spring">Spring</option> 
+    <option id="Summer" value = "Summer">Summer</option>
+  </select>
+  <select name="year" id="year">
+    <option id="blank" value = "blank">--</option>
+    <option id="2015" value = "2015">2015</option>
+    <option id="2014" value = "2014">2014</option>
+    <option id="2013" value = "2013">2013</option> 
+    <option id="2012" value = "2012">2012</option>
+    <option id="2011" value = "2011">2011</option>
+    <option id="2010" value = "2010">2010</option>
+    <option id="2009" value = "2009">2009</option>
+    <option id="2008" value = "2008">2008</option>
+  </select>
+  <input type="button" id ="submit" value = "Submit"></input>
+  <div id ="error"></div>
+	<!-- <input type="button" value="Select" id="class-select"> -->
+</body>
+</html>
