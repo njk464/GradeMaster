@@ -11,12 +11,105 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<style>
+		body {
+		    background-color: lightgrey;
+		} 
+		h1 {
+			background-color: blue;
+		    width: 260px;
+		    border: 15px solid navy;
+		    margin: 15px;
+		}
+		ul {
+			position: absolute;
+			left: 290px;
+			top: 20px;
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		}
 
+		li {
+			float: left;
+		}
+
+		a {
+			font-size: 30px;
+			color: black;
+		    display: block;
+		    padding:10px;
+		}
+		p {
+			font-size: 20px
+		}
+	</style>
+	<script>
+		GPA = "";
+		function setCookie(cname, cvalue, exdays) {
+		    var d = new Date();
+		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		    var expires = "expires="+d.toUTCString();
+		    document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var ca = document.cookie.split(';');
+		    for(var i=0; i<ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0)==' ') c = c.substring(1);
+		        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+		    }
+		    return "";
+		}
+
+		function checkCookie() {
+		    var user = getCookie("username");
+		    if (user != "") {
+		        alert("Welcome again " + user);
+		    } else {
+		        user = prompt("Please enter your name:", "");
+		        if (user != "" && user != null) {
+		            setCookie("username", user, 365);
+		        }
+		    }
+		}
+		$(document).ready(function() {
+			if (GPA == "")
+			{
+				GPA = getCookie("GPA");
+				console.log (GPA);
+			}
+			var text = $("#someitemtext");
+			var butt = $("#enter");
+			var red= $("redirect");
+			butt.on("click", function() {
+				var txtinput = text.val();
+				//console.log(txtinput);
+				$('#priority').append('<option>' + txtinput + '</option>');
+				text.val("");
+				GPA = 4.0;
+				setCookie("GPA", GPA, 1);
+				console.log(GPA);
+			});
+			red.on("click", function() {
+				var go = $("priority").val()
+				$("#a").append(go);
+				text.val("");
+			});
+
+			$(document).on('click', '.item', function() {
+				console.log("item");
+		        	if( $(this).parent().id == "priority" ){
+		            		$(this).remove();
+		        	}
+		    	});
+		});
+	</script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	
-	<script src="gm.js"></script>
-	<link rel="stylesheet" type="text/css" href="home.css">
 </head>
 
 <body>
